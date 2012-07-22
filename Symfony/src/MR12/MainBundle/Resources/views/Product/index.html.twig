@@ -1,0 +1,37 @@
+{% extends 'MR12MainBundle::base.html.twig' %}
+
+ {% block body %}
+ 
+ 
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>Add to Invoice</th>
+    </tr>
+  {% for product in products %}
+    <tr>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.description}}</td>
+      <td>/edit/</td>
+      <td><a href="{{ path('product_delete', {'id' : product.id}) }}">Delete</a></td>
+      <td>
+        <form method="POST" action="{{ path('invoice_add', {'product_id' : product.id}) }}">
+          <select name="invoice_id">
+            {% for invoice in invoices %}
+              <option value="{{invoice.id}}">{{invoice.name}}</option>
+            {% endfor %}
+          </select>
+          <input type="submit" value="Add">
+        </form>
+      </td>
+    </tr>  
+    
+  
+  {% endfor %}
+  </table>
+ {% endblock %}

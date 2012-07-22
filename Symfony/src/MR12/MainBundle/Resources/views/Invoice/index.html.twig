@@ -1,0 +1,15 @@
+{% extends 'MR12MainBundle::base.html.twig' %}
+
+ {% block body %}
+  {{app.session.flash('notice')}}
+ 
+  {% for invoice in invoices %}
+  <h1>{{ invoice.name }}</h1><br>
+    <ul>
+    {% for product in invoice.products %}
+      <li>{{product.name}}</li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+  </table>
+ {% endblock %}

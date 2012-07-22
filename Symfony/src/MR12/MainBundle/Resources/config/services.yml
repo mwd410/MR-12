@@ -1,0 +1,7 @@
+parameters:
+#    mr12_main.example.class: MR12\MainBundle\Example
+
+services:
+#    mr12_main.example:
+#        class: %mr12_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,4 @@
+
+hello:
+    pattern:  /hello/{name}/{price}
+    defaults: { _controller: MR12MainBundle:Hello:index }
